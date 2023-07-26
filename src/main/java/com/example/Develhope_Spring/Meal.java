@@ -1,4 +1,4 @@
-package com.example.Develhope_Spring.controllers;
+package com.example.Develhope_Spring;
 
 public class Meal {
     private String name;
