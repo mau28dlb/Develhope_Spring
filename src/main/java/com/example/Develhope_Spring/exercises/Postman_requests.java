@@ -1,6 +1,5 @@
-package com.example.Develhope_Spring.controllers;
+package com.example.Develhope_Spring.exercises;
 
-import jdk.jshell.Snippet;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,7 +43,7 @@ public class Postman_requests {
 
     @GetMapping("/info")
     public ResponseEntity<String> status(){
-        return ResponseEntity.ok().build();
+        return ResponseEntity.internalServerError().build();
     }
 
 //    Exercise 4: Create a GetMapping that returns 400 - Bad request or 200 - OK based on a random boolean

@@ -1,10 +1,10 @@
-package com.example.Develhope_Spring.controllers;
+package com.example.Develhope_Spring.exercises;
 
+import com.example.Develhope_Spring.Meal;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController

@@ -1,6 +1,7 @@
 package com.example.Develhope_Spring.service;
 
 import com.example.Develhope_Spring.Meal;
+import com.example.Develhope_Spring.RestaurantConfig;
 import com.example.Develhope_Spring.dao.MealDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,29 +11,14 @@ import java.util.List;
 @Service
 public class MealService {
     private MealDao mealDao;
+    private RestaurantConfig restaurantConfig;
 
     @Autowired
-    public MealService(MealDao mealDao){
+    public MealService(MealDao mealDao, RestaurantConfig restaurantConfig){
         this.mealDao = mealDao;
+        this.restaurantConfig = restaurantConfig;
     }
-    public void addMeal(Meal meal){
-        if (meal == null) throw new IllegalArgumentException("Meal can't be null");
-        if (meal.getName() == null || meal.getName().isEmpty()) throw new IllegalArgumentException("Meal name can't be null or empty");
-        if (meal.getDescription() == null || meal.getDescription().isEmpty()) throw new IllegalArgumentException("Meal description can't be null or empty");
-        if (meal.getPrice() <= 0) throw new IllegalArgumentException("Meal price can't be less or equal to 0");
-        mealDao.addMeal(meal);
-    }
-
-    public void deleteMeal (String mealName){
-        if (mealName == null) throw new IllegalArgumentException("Can't delete something that doesn't exist");
-        mealDao.deleteMeal(mealName);
-    }
-
-    public void updateMeal (Meal meal){
-        mealDao.updateMeal(meal);
-    }
-
-    public List<Meal> getMeals(){
-        return mealDao.getMeals();
-    }
+  public void insertMealTest() {
+        mealDao.save(new Meal("Test meal", "very tasty", 4.8));
+  }
 }

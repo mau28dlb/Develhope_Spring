@@ -1,11 +1,8 @@
-package com.example.Develhope_Spring.controllers;
+package com.example.Develhope_Spring.exercises;
 
-import org.apache.coyote.Response;
+import com.example.Develhope_Spring.Meal;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,6 +24,7 @@ public class PathVar_ReqParam_ReturnObj {
 
     @GetMapping("/meals")
     public List<Meal> getMealList() {
+
         return mealList;
     }
 
@@ -66,7 +64,7 @@ public class PathVar_ReqParam_ReturnObj {
     @GetMapping("/meal/price")
     public ResponseEntity<?> getMealsByPriceRange(
             @RequestParam("min") double min,
-            @RequestParam("max") double max){
+            @RequestParam("max") double max) {
         return ResponseEntity.ok(mealList.stream().filter(meal -> (meal.getPrice() >= min && meal.getPrice() <= max)).collect(Collectors.toList()));
     }
 
