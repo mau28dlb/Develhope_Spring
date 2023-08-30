@@ -1,9 +1,8 @@
 package com.example.Develhope_Spring.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.Develhope_Spring.Meal;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 
 @Entity
 public class Ingredient {
@@ -15,6 +14,10 @@ public class Ingredient {
     private boolean isVegan;
     private boolean isGlutenFree;
     private boolean isLactoseFree;
+
+    @JsonBackReference
+    @ManyToOne
+    private Meal meal;
 
     public Ingredient(Long id, String name, boolean isVegetarian, boolean isVegan, boolean isGlutenFree, boolean isLactoseFree) {
         this.id = id;
